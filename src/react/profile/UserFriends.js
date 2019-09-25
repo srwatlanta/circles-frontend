@@ -5,9 +5,8 @@ import uuid from 'uuid'
 import {Row, Col, ListGroup} from 'react-bootstrap'
 
 const style = {
-    row: {
-        backgroundColor: '#ced4d9',
-        margin: '5em'
+    header: {
+        margin: '2em'
     }
 }
 
@@ -25,18 +24,13 @@ class UserFriends extends Component {
 
     render() {
         return (
-            <Row style={style.row}>
-                <Col xs={6}>
-                    <ListGroup>
-                        {this.renderFriends()}
-                    </ListGroup>
-                </Col>
-                <Col xs={2}>
-                </Col>
-                <Col xs={4}>
-                    {this.findFriends()}
-                </Col>
-            </Row>
+            <div>
+                <h1 style={style.header}>Friends</h1>
+                <ListGroup>
+                    {this.renderFriends()}
+                </ListGroup>
+            </div>
+
         );
     }
 }

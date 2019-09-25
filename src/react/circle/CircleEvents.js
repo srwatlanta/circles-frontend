@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Row, Carousel, Container} from 'react-bootstrap'
 import {connect} from 'react-redux'
+import {Link} from 'react-browser-router'
+
 
 const style = {
     addButton: {
@@ -25,7 +27,8 @@ class CircleEvents extends Component {
     renderEvents = () => {
         return this.props.events.map(event => {
             return (
-                <Carousel.Item>
+            <Carousel.Item>
+                <Link to={`/events/${event.id}`}>
                 <img
                   src={event.img_url}
                   alt="event_img"
@@ -38,7 +41,8 @@ class CircleEvents extends Component {
                   <p>{event.start_time}</p>
                   <p>{event.price}</p>
                 </Carousel.Caption>
-              </Carousel.Item>
+                </Link>
+            </Carousel.Item>
             )
         })
     }

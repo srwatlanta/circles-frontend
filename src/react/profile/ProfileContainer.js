@@ -3,19 +3,27 @@ import {connect} from 'react-redux'
 import UserCircles from './UserCircles'
 import UserFriends from './UserFriends'
 import UserInvites from './UserInvites'
-import {Container} from 'react-bootstrap'
+import {Col, Row} from 'react-bootstrap'
 
-
+const style= {
+    friends: {
+        backgroundColor: '#d6942c'
+    }
+}
 class ProfileContainer extends Component {
 
 
     render() {
         return (
-            <Container>
-                <UserCircles/>
-                <UserInvites/>
-                <UserFriends/>
-            </Container>
+            <Row>
+                <Col xs={2} style={style.friends}>
+                    <UserFriends/>
+                </Col>
+                <Col xs={10}>
+                    <UserCircles/>
+                    <UserInvites/>
+                </Col>
+            </Row>
         );
     }
 }

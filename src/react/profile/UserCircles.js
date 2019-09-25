@@ -29,6 +29,7 @@ class UserCircles extends Component {
             )
         })
     }
+    
     render() {
         return (
             <Row xs={12} >

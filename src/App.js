@@ -8,6 +8,7 @@ import NavBar from './react/navbar/NavBar'
 import {currentUser} from './redux/actions/userActions'
 import {withRouter} from 'react-router-dom'
 import CircleContainer from './react/circle/CircleContainer'
+import EventContainer from './react/event/EventContainer'
 
 const eventfulAPIKEY = 'nX7Df7js95pkQ5s5'
 const eventAPI = 'http://api.eventful.com/rest/events/search?'
@@ -17,7 +18,7 @@ const colors = ["ced4d9", 'd6942c', "515b64"]
 
 class App extends Component {
   componentDidMount(){
-      this.props.currentUser(this.props.history)
+      localStorage.token && this.props.currentUser(this.props.history)
   }
   
 
@@ -30,6 +31,7 @@ class App extends Component {
           <Route exact path='/login' component={LoginContainer}/>
           <Route exact path='/profile' component={ProfileContainer}/>
           <Route exact path="/circles/:id" component={CircleContainer} />
+          <Route exact path="/events/:id" component={EventContainer} />
         </Switch>
       </div>
 
