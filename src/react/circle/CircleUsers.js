@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Col, Row, Container, Modal, ListGroup} from 'react-bootstrap'
+import {Col, Row, Container, Modal, ListGroup, Form} from 'react-bootstrap'
 import uuid from 'uuid'
 import CircleUser from './CircleUser'
 import {connect} from 'react-redux'
@@ -23,7 +23,8 @@ class CircleUsers extends Component {
 
     state = {
         modalClicked: false,
-        users: []
+        users: [],
+        search: ''
     }
 
     fetchAllUsers = () => {
@@ -48,12 +49,17 @@ class CircleUsers extends Component {
     
     filterAddUsers = () => {
         let current = this.props.users.map(user => user.id)
-        return this.state.users.filter(f => !current.includes(f.id))
+        let array = this.state.users.filter(f => !current.includes(f.id))
+        if(this.state.search.length > 0){
+            return array.filter(user => user.name.includes(this.state.search))
+        } else {
+            return array
+        }
     }
 
     renderAddUsers = () => {
         return this.filterAddUsers().map(user => {
-            return<AddCircleUser key={uuid()} user={user} circleId={this.props.circleId}/>
+            return<AddCircleUser onClick={this.handleAdd} key={uuid()} user={user} circleId={this.props.circleId}/>
         })
     }
 
@@ -70,6 +76,18 @@ class CircleUsers extends Component {
     handleClick = () => {
         this.setState({
             modalClicked: true
+        })
+    }
+
+    handleAdd = () => {
+        this.setState({
+            modalClicked: false
+        })
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
         })
     }
 
@@ -94,6 +112,18 @@ class CircleUsers extends Component {
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
+                        <Form style={style.form}>
+                            <Form.Group controlId="formSearch">
+                                <Form.Control 
+                                    type="search" 
+                                    placeholder="Search" 
+                                    name="search" 
+                                    value={this.state.search} 
+                                    onChange={(event) => this.handleChange(event)}
+                                />
+                                <Form.Text className="text-muted"></Form.Text>
+                            </Form.Group>
+                        </Form>
                         <ListGroup>
                             {this.renderAddUsers()}
                         </ListGroup>

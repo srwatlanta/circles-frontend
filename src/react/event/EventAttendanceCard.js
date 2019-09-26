@@ -19,7 +19,7 @@ class EventAttendanceCard extends Component {
         case 'Attending':
             return "success"
         case 'Invited':
-            return "info"
+            return "light"
         case 'Declined':
             return "danger"
         }
@@ -28,10 +28,10 @@ class EventAttendanceCard extends Component {
     render() {
         return (
             <Card bg={this.cardColor()} style={style.card}>
-                <Card.Img variant="top" src={this.props.user.img_url} style={style.image} width='75' />
+                <Card.Img variant="top" src={this.props.user.img_url} width='75' />
                 <Card.Body>
                     <Card.Title>{this.props.user.username}</Card.Title>
-                    <Card.Text>{this.props.status}</Card.Text>
+                    <Card.Text><strong>{this.props.status}</strong></Card.Text>
                 </Card.Body>
             </Card>
         );

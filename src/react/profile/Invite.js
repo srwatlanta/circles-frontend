@@ -11,7 +11,14 @@ const style = {
         marginRight: '1em'
     },
     event: {
-        marginRight: '5em'
+        marginRight: '5em',
+        color: 'black',
+        ':hover': {
+            textDecoration: 'none'
+        }
+    },
+    eventHover: {
+        textDecoration: 'none'
     },
     row: {
         backgroundColor: '#ced4d9'
@@ -28,7 +35,7 @@ class Invite extends Component {
         case 'Attending':
             return "success"
         case 'Invited':
-            return "info"
+            return "secondary"
         case 'Declined':
             return "danger"
         }
@@ -55,7 +62,6 @@ class Invite extends Component {
                         </Button>
                         <Dropdown.Toggle split variant={this.buttonColor()} id="dropdown-split-basic" />
                         <Dropdown.Menu>
-                            <Dropdown.Item onClick={this.handleChange} name='Invited'>Invited</Dropdown.Item>
                             <Dropdown.Item onClick={this.handleChange} name='Attending'>Attend</Dropdown.Item>
                             <Dropdown.Item onClick={this.handleChange} name='Declined'>Decline</Dropdown.Item>
                         </Dropdown.Menu>

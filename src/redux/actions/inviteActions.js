@@ -1,5 +1,4 @@
 export function updateInviteStatus(id, statusUpdate){
-    console.log(id)
     const token = localStorage.token
     const reqObj = {
         method: 'PATCH',

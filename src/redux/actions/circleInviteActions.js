@@ -18,8 +18,8 @@ export function addUserToCircle(userId, circleId){
         dispatch({type: 'ADD_USER_TO_CIRCLE'})
         return fetch('http://localhost:3000/circle_invites', reqObj)
         .then(res =>res.json())
-        .then(user => {
-            dispatch({type: 'USER_ADDED_TO_CIRCLE', user: user.user})
+        .then(circle => {
+            dispatch({type: 'USER_ADDED_TO_CIRCLE', circle})
         })
     }
 }

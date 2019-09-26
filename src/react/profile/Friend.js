@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {Row, ListGroup} from 'react-bootstrap'
-import {Link} from 'react-browser-router'
+import {Row, ListGroup, Button} from 'react-bootstrap'
+import {connect} from 'react-redux'
+import {fetchFriend} from '../../redux/actions/friendshipActions'
 
 
 const style = {
@@ -12,6 +13,9 @@ const style = {
     username: {
         margin: 'auto',
         color: 'black'
+    },
+    row: {
+        marginLeft: '1em'
     }
 }
 
@@ -26,10 +30,13 @@ class Friend extends Component {
         })
     }
 
+    handleClick = () => {
+        this.props.fetchFriend(this.friend.id)
+    }
+
     render() {
         return (
-            <ListGroup.Item>
-                <Link to={`/users/${this.friend.id}`}>
+            <ListGroup.Item onClick={this.handleClick} style={style.row}>
                 <Row>
                     <h4 style={style.username}>{this.friend.username}</h4>
                     <img
@@ -39,10 +46,10 @@ class Friend extends Component {
                     style={style.image}
                     />
                 </Row>
-                </Link>                       
             </ListGroup.Item>
         );
     }
 }
 
-export default Friend;
+
+export default connect(null, {fetchFriend})(Friend);

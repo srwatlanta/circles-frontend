@@ -25,6 +25,7 @@ class AddCircleUser extends Component {
 
     handleClick = () => {
         this.props.addUserToCircle(this.props.user.id, this.props.circleId)
+        this.props.onClick()
     }
 
     render() {

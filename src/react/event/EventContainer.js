@@ -5,7 +5,6 @@ import { withRouter } from 'react-browser-router';
 import {Container, Col, Row} from 'react-bootstrap'
 import EventInformation from './EventInformation'
 import EventAttendance from './EventAttendance'
-import EditEventForm from './EditEventForm'
 import EventComments from './EventComments'
 
 const style = {
