@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import {Row, Col, Container} from 'react-bootstrap'
+import {Row, Spinner, Container} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {clearFriend} from '../../redux/actions/friendshipActions'
 import UserInfo from './FriendInfo'
 import UserCircles from './FriendCircles'
+import AddFriend from './AddFriend'
 
 const style = {
     left: {
@@ -21,20 +22,23 @@ const style = {
 class FriendContainer extends Component {
     
     waitForUser = () => {
-        if (this.props.user.name){
+        if (this.props.friend.name){
             return (
             <div>
                 <Row>
-                    <UserInfo user={this.props.user} clear={this.props.clearFriend}/>
+                    <UserInfo user={this.props.friend} clear={this.props.clearFriend}/>
                 </Row>
                 <hr></hr>
                 <Row>
-                    <UserCircles circles={this.props.user.circles} /> 
+                    <UserCircles circles={this.props.friend.circles} /> 
+                </Row>
+                <Row>
+                    <AddFriend friend={this.props.friend} friendships={this.props.friendships} clear={this.props.clearFriend}/>
                 </Row>
             </div>
             )
         } else {
-            return <Container></Container>
+            return <Container><Spinner animation="border" variant="info" /></Container>
         }
     }
     
@@ -49,7 +53,8 @@ class FriendContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.userShow
+        friendships: state.friendships,
+        friend: state.userShow
     }
 }
 

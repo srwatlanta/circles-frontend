@@ -13,6 +13,7 @@ export function currentUser(history){
         .then(res =>res.json())
         .then(user => {
             dispatch({type: 'USER_SET', user: user.user})
+            history.push('/profile')
         })
     }
 }
@@ -42,3 +43,50 @@ export function loginUser(data, history){
     }
 }
 
+export function fetchAllUsers() {
+    const token = localStorage.token
+    const reqObj = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    }
+    return(dispatch) => {
+        dispatch({type: "FETCHING_USERS"})
+        return fetch('http://localhost:3000/users', reqObj)
+        .then(res=> res.json())
+        .then(data => {
+            dispatch({type: 'FETCH_USERS', data})
+        })
+    }
+}
+
+export function editUser(id, data){
+    const token = localStorage.token
+    const reqObj = {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accepts': 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            user: {
+                username: data.username,
+                name: data.name,
+                email: data.email,
+                img_url: data.img_url
+            }
+        })
+    }
+    return(dispatch) => {
+        dispatch({type: 'SENDING_EDIT_INFO'})
+        return fetch(`http://localhost:3000/users/${id}`, reqObj)
+        .then(res => res.json())
+        .then(data => {
+            dispatch({type: 'USER_SET', user: data.user})
+        })
+    }
+
+}

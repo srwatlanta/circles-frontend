@@ -8,6 +8,7 @@ import inviteReducer from './inviteReducer'
 import circleShowReducer from './circleShowReducer'
 import eventShowReducer from './eventShowReducer'
 import userShowReducer from './userShowReducer'
+import allUserReducer from './allUserReducer'
 
 const rootReducer = combineReducers({
     user: userReducer,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     circleInvites: circleInviteReducer,
     circleShow: circleShowReducer,
     eventShow: eventShowReducer,
-    userShow: userShowReducer
+    userShow: userShowReducer,
+    allUsers: allUserReducer
 })
 
 export default rootReducer

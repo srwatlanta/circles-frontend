@@ -23,33 +23,12 @@ class CircleUsers extends Component {
 
     state = {
         modalClicked: false,
-        users: [],
         search: ''
-    }
-
-    fetchAllUsers = () => {
-        const token = localStorage.token
-        const reqObj = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`
-            }
-        }
-        fetch('http://localhost:3000/users', reqObj)
-        .then(res=> res.json())
-        .then(data => this.setState({
-            users: data
-        }))
-    }
-
-    componentDidMount(){
-        this.fetchAllUsers()
     }
     
     filterAddUsers = () => {
         let current = this.props.users.map(user => user.id)
-        let array = this.state.users.filter(f => !current.includes(f.id))
+        let array = this.props.allUsers.filter(f => !current.includes(f.id))
         if(this.state.search.length > 0){
             return array.filter(user => user.name.includes(this.state.search))
         } else {
@@ -139,7 +118,8 @@ class CircleUsers extends Component {
 const mapStateToProps = state => {
     return {
         users: state.circleShow.users,
-        circleId: state.circleShow.id
+        circleId: state.circleShow.id,
+        allUsers: state.allUsers
     }
 }
 

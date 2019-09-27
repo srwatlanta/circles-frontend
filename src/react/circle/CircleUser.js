@@ -1,6 +1,5 @@
 import React, { Component} from 'react';
-import {Row} from 'react-bootstrap'
-import {Link} from 'react-browser-router'
+import {Row, Image} from 'react-bootstrap'
 
 const style = {
     image: {
@@ -10,19 +9,19 @@ const style = {
 }
 
 class CircleUser extends Component {
+    state = {
+        friendClicked: false
+    }
     render() {
         return (
             <React.Fragment>
                 <Row className="justify-content-md-center">
-                    <Link to={`/users/${this.props.user.id}`}>
-                    <img 
+                    <Image 
                     src={this.props.user.img_url}
                     width='125'
                     height='125'
                     style={style.image}
                     />
-                    </Link>
-
                 </Row>
                 <Row className="justify-content-md-center">
                     <h2>{this.props.user.username}</h2>

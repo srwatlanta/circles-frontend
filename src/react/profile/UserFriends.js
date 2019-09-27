@@ -4,6 +4,7 @@ import Friend from './Friend'
 import uuid from 'uuid'
 import {ListGroup, Form} from 'react-bootstrap'
 import FriendContainer from '../friend/FriendContainer';
+import FindFriend from './FindFriend'
 
 const style = {
     header: {
@@ -20,9 +21,23 @@ class UserFriends extends Component {
     state = {
         search: ''
     }
+
     renderFriends = () => {
-        return this.props.friends.map(friend => {
-            return <Friend key={uuid()} friend={friend}/>
+        if(this.state.search.length > 0){
+            let array = this.props.allUsers.filter(user => user.username.includes(this.state.search) || user.name.includes(this.state.search))
+            return array.map(user => {
+                return <FindFriend key={uuid()} user={user}/>
+            })
+        } else {
+            return this.props.friends.map(friend => {
+                return <Friend key={uuid()} friend={friend}/>
+            })        
+        }
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
         })
     }
 
@@ -59,7 +74,8 @@ class UserFriends extends Component {
 const mapStateToProps = state => {
     return {
         friends: state.friendships,
-        activeFriend: state.userShow
+        activeFriend: state.userShow,
+        allUsers: state.allUsers
     }
 }
 

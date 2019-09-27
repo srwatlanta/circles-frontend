@@ -5,7 +5,7 @@ import ProfileContainer from './react/profile/ProfileContainer'
 import {Switch, Route} from 'react-router-dom'
 import LoginContainer from './react/login/LoginContainer';
 import NavBar from './react/navbar/NavBar'
-import {currentUser} from './redux/actions/userActions'
+import {currentUser, fetchAllUsers} from './redux/actions/userActions'
 import {withRouter} from 'react-router-dom'
 import CircleContainer from './react/circle/CircleContainer'
 import EventContainer from './react/event/EventContainer'
@@ -19,6 +19,7 @@ const colors = ["ced4d9", 'd6942c', "515b64"]
 class App extends Component {
   componentDidMount(){
       localStorage.token && this.props.currentUser(this.props.history)
+      this.props.fetchAllUsers()
   }
   
 
@@ -39,4 +40,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, {currentUser})(withRouter(App));
+export default connect(null, {currentUser, fetchAllUsers})(withRouter(App));
