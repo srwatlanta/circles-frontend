@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Row} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import {clearFriend} from '../../redux/actions/friendshipActions'
+import {connect} from 'react-redux'
 
 const style = {
     image: {
@@ -17,7 +19,7 @@ class FriendCircle extends Component {
         return (
             <React.Fragment>
                 <Row className="justify-content-md-center">
-                    <Link to={`/circles/${this.props.circle.id}`}>
+                    <Link to={`/circles/${this.props.circle.id}`} onClick={()=>this.props.clearFriend()}>
                     <img 
                     src={this.props.circle.img_url}
                     width='50'
@@ -34,4 +36,4 @@ class FriendCircle extends Component {
     }
 }
 
-export default FriendCircle;
+export default connect(null, {clearFriend})(FriendCircle);

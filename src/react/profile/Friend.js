@@ -32,6 +32,7 @@ class Friend extends Component {
 
     handleClick = () => {
         this.props.fetchFriend(this.friend.id)
+        this.props.clear()
     }
 
     render() {

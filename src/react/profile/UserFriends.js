@@ -26,11 +26,11 @@ class UserFriends extends Component {
         if(this.state.search.length > 0){
             let array = this.props.allUsers.filter(user => user.username.includes(this.state.search) || user.name.includes(this.state.search))
             return array.map(user => {
-                return <FindFriend key={uuid()} user={user}/>
+                return <FindFriend key={uuid()} user={user} clear={this.clearSearch}/>
             })
         } else {
             return this.props.friends.map(friend => {
-                return <Friend key={uuid()} friend={friend}/>
+                return <Friend key={uuid()} friend={friend} clear={this.clearSearch}/>
             })        
         }
     }
@@ -38,6 +38,12 @@ class UserFriends extends Component {
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
+        })
+    }
+
+    clearSearch = () => {
+        this.setState({
+            search: ''
         })
     }
 

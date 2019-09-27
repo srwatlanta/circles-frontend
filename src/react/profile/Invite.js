@@ -3,6 +3,8 @@ import {ListGroup, Row, Button, Dropdown, ButtonGroup} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {updateInviteStatus} from '../../redux/actions/inviteActions'
 import {Link} from 'react-browser-router'
+import {clearFriend} from '../../redux/actions/friendshipActions'
+
 
 
 const style = {
@@ -54,7 +56,7 @@ class Invite extends Component {
                     style={style.image}
                     width= '45'
                     />
-                    <Link to={`/events/${this.props.invite.id}`}>
+                    <Link to={`/events/${this.props.invite.id}`} onClick={this.props.clearFriend}>
                     <h3 style={style.event}>{this.props.invite.event.name}</h3>
                     </Link>
                     <Dropdown className='ml-auto' as={ButtonGroup} >
@@ -72,4 +74,4 @@ class Invite extends Component {
     }
 }
 
-export default connect(null, {updateInviteStatus})(Invite);
+export default connect(null, {updateInviteStatus, clearFriend})(Invite);
