@@ -53,9 +53,13 @@ class CircleEvents extends Component {
                     <h1>EVENTS</h1>
                 </Row>
                 <Row xs={12} className="justify-content-md-center">
+                    {this.props.events.length > 0 ?
                     <Carousel>
                         {this.renderEvents()}
                     </Carousel>
+                    :
+                    <h1>This Circle Currently Has No Events</h1>
+                    }
                 </Row>
             </Container>
         );

@@ -103,7 +103,7 @@ class CircleUsers extends Component {
                                 <Form.Text className="text-muted"></Form.Text>
                             </Form.Group>
                         </Form>
-                        <ListGroup>
+                        <ListGroup >
                             {this.renderAddUsers()}
                         </ListGroup>
                     </Modal.Body>

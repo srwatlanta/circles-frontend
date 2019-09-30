@@ -9,6 +9,8 @@ export default function userReducer(state={}, action){
                 member_since: action.user.member_since,
                 image: action.user.img_url
             }
+        case 'LOGOUT_USER':
+            return {}
         default:
             return state
     }

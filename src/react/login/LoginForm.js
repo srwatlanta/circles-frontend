@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {Form, Button, Container, Row, Col, ButtonToolbar} from 'react-bootstrap'
 import {loginUser} from '../../redux/actions/userActions'
+import CreateAccountModal from './CreateAccountModal';
 
 const style = {
     button: {
@@ -26,7 +27,8 @@ class LoginForm extends Component {
 
     state = {
         username: '',
-        password: ''
+        password: '',
+        modalClicked: false
     }
 
     handleChange = (event) => {
@@ -38,6 +40,18 @@ class LoginForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.loginUser(this.state, this.props.history)
+    }
+
+    createAccountClick = () => {
+        this.setState({
+            modalClicked: true
+        })
+    }
+
+    closeModal = () => {
+        this.setState({
+            modalClicked: false
+        })
     }
 
     render() {
@@ -75,16 +89,23 @@ class LoginForm extends Component {
                             </Form.Group>
                             <ButtonToolbar className="justify-content-md-center">
                                 <Button style={style.button} type="submit">
-                                    Submit
+                                    Login
                                 </Button>
                                 <Button style={style.button}>
                                     Forgot Password
                                 </Button>
                             </ButtonToolbar>
+                            <ButtonToolbar className="justify-content-md-center">
+                                <Button style={style.button} onClick={this.createAccountClick}>
+                                    Create New Account
+                                </Button>
+                            </ButtonToolbar>
                         </Form>   
                     </Col>
                 </Row>
-            </Container> 
+                {this.state.modalClicked ? <CreateAccountModal history={this.props.history} modalClicked={this.state.modalClicked} closeModal={this.closeModal}/> : null}
+            </Container>
+
         );
     }
 }

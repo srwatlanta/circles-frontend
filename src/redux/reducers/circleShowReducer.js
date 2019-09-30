@@ -5,6 +5,8 @@ export default function circleShowReducer(state={}, action){
             return action.circle.circle
         case 'USER_ADDED_TO_CIRCLE':
             return action.circle.circle
+        case 'LOGOUT_USER':
+            return {}
         default:
             return state
     }

@@ -18,8 +18,12 @@ const colors = ["ced4d9", 'd6942c', "515b64"]
 
 class App extends Component {
   componentDidMount(){
-      localStorage.token && this.props.currentUser(this.props.history)
-      this.props.fetchAllUsers()
+      if (localStorage.token === undefined || localStorage.token === 'undefined'){
+        return null
+      }else{
+        this.props.currentUser(this.props.history)
+        this.props.fetchAllUsers()
+      }
   }
   
 

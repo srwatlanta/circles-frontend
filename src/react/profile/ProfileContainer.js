@@ -12,7 +12,7 @@ const style= {
 }
 class ProfileContainer extends Component {
 
-
+    
     render() {
         return (
             <Row>

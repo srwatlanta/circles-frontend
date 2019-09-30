@@ -15,7 +15,8 @@ const style = {
         fontSize: '24px',
         lineHeight: '1.33',
         backgroundColor: '#ced4d9',
-        marginTop: '1em'
+        marginTop: '1em',
+        marginRight: '1em'
     }
 }
 
@@ -50,9 +51,14 @@ class UserCircles extends Component {
     render() {
         return (
             <React.Fragment>
-                <Row xs={12} >
+                <Row xs={12} style={style.row}>
                     {this.renderCircles()}
-                    <button onClick={this.openModal} type="button" style={style.addButton}><AddCircleOutlineTwoToneIcon fontSize='large'/>
+                    <button 
+                    onClick={this.openModal} 
+                    type="button" 
+                    className='ml-auto'
+                    style={style.addButton}>
+                        <AddCircleOutlineTwoToneIcon fontSize='large'/>
                     </button>
 
                 </Row>

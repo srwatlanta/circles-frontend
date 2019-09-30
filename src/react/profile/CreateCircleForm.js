@@ -5,6 +5,7 @@ import uuid from 'uuid'
 import {connect} from 'react-redux'
 import {newCircleFetch} from '../../redux/actions/circleActions'
 import {withRouter} from 'react-router-dom'
+import { minHeight } from '@material-ui/system';
 
 const style = {
     button: {
@@ -106,7 +107,7 @@ class CreateCircleForm extends Component {
                 aria-labelledby="example-modal-sizes-title-lg">
                 <Modal.Header closeButton>
                     <Modal.Title id="example-modal-sizes-title-lg">
-                        Create New Circle
+                        Create A New Circle
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -145,7 +146,7 @@ class CreateCircleForm extends Component {
                             />
                             <Form.Text className="text-muted"></Form.Text>
                         </Form.Group>
-                        <Form.Group>
+                        <Form.Group >
                             {this.renderAddUsers()}
                         </Form.Group>
                         <ButtonToolbar className="justify-content-md-center">

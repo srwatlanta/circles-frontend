@@ -5,7 +5,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import EditIcon from '@material-ui/icons/Edit';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import {Link} from 'react-browser-router'
-import {editUser} from '../../redux/actions/userActions'
+import {editUser, logoutUser} from '../../redux/actions/userActions'
 
 
 const style = {
@@ -31,6 +31,10 @@ class NavBar extends Component {
             email: props.user.email,
             img_url: props.user.image
         }
+    }
+
+    logoutUser = () => {
+        this.props.logoutUser()
     }
 
     handleClick = () => {
@@ -68,9 +72,9 @@ class NavBar extends Component {
                     <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
                         <NavDropdown title={this.props.user.username} >
                             <NavDropdown.Item style={style.drop} href="/profile"><AccountCircleIcon style={style.icon}/>Go To Profile</NavDropdown.Item>
-                            <NavDropdown.Item onClick={this.handleClick} style={style.drop} href="#action/3.2"><EditIcon style={style.icon}/>Edit Profile</NavDropdown.Item>
+                            <NavDropdown.Item onClick={this.handleClick} style={style.drop} ><EditIcon style={style.icon}/>Edit Profile</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item style={style.drop} href="#action/3.4"><ExitToAppIcon style={style.icon}/>Logout</NavDropdown.Item>
+                            <NavDropdown.Item onClick={this.logoutUser}style={style.drop} href="/login"><ExitToAppIcon style={style.icon}/>Logout</NavDropdown.Item>
                         </NavDropdown>
                         <Link to= '/profile'>
                         <img
@@ -82,7 +86,7 @@ class NavBar extends Component {
                     </Navbar.Collapse>
                 </Nav>
                 <Modal
-                    size="lg"
+                    size="md"
                     show={this.state.modalClicked}
                     onHide={() => this.setState({modalClicked: false})}
                     aria-labelledby="example-modal-sizes-title-lg">
@@ -156,4 +160,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {editUser})(NavBar);
+export default connect(mapStateToProps, {editUser, logoutUser})(NavBar);

@@ -12,6 +12,10 @@ const style = {
     },
     hr: {
         marginLeft: '1em'
+    },
+    div: {
+        minHeight: '825px',
+        maxHeight: '825px'
     }
 }
 
@@ -49,7 +53,7 @@ class UserFriends extends Component {
 
     render() {
         return (
-            <div>
+            <div style={style.div}>
                 <h1 style={style.header}>Friends</h1>
                 <Form style={style.hr}>
                     <Form.Group controlId="formSearch">

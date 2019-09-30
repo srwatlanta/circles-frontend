@@ -26,7 +26,7 @@ const style = {
         backgroundColor: '#ced4d9'
     },
     button: {
-        width: '100'
+        minWidth: '150px'
     }
 }
 
@@ -60,14 +60,14 @@ class Invite extends Component {
                     <h3 style={style.event}>{this.props.invite.event.name}</h3>
                     </Link>
                     <Dropdown className='ml-auto' as={ButtonGroup} >
-                        <Button variant={this.buttonColor()}>{this.props.invite.status}
+                        <Button style={style.button} variant={this.buttonColor()}>{this.props.invite.status}
                         </Button>
                         <Dropdown.Toggle split variant={this.buttonColor()} id="dropdown-split-basic" />
                         <Dropdown.Menu>
                             <Dropdown.Item onClick={this.handleChange} name='Attending'>Attend</Dropdown.Item>
                             <Dropdown.Item onClick={this.handleChange} name='Declined'>Decline</Dropdown.Item>
                         </Dropdown.Menu>
-                    </Dropdown>                
+                    </Dropdown>               
                 </Row>
             </ListGroup.Item>
         );

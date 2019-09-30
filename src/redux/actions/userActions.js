@@ -15,6 +15,8 @@ export function currentUser(history){
             dispatch({type: 'USER_SET', user: user.user})
             history.push('/profile')
         })
+        .catch(error => alert('Please Provide Valid Credentials'))
+        history.push('/login')
     }
 }
 
@@ -40,6 +42,9 @@ export function loginUser(data, history){
             dispatch({type: 'USER_SET', user: data.user})
             history.push('/profile')
         })
+        .catch(error => alert('Please Provide Valid Credentials'))
+        history.push('/login')
+
     }
 }
 
@@ -89,4 +94,41 @@ export function editUser(id, data){
         })
     }
 
+}
+
+export function createUser(user, history){
+    const reqObj = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accepts': 'application/json',
+        },
+        body: JSON.stringify({
+            user: {
+                username: user.username,
+                password: user.password,
+                name: user.name,
+                email: user.email,
+                img_url: user.img_url
+            }
+        })
+    }
+    return(dispatch) => {
+        dispatch({type: 'SENDING_EDIT_INFO'})
+        return fetch('http://localhost:3000/users', reqObj)
+        .then(res => res.json())
+        .then(data => {
+            localStorage.token = data.jwt
+            dispatch({type: 'USER_SET', user: data.user})
+            history.push('/profile')
+        })
+        .catch(error => alert('Please Provide Valid Credentials'))
+        history.push('/login')
+        .then(fetchAllUsers())
+    }
+}
+
+export function logoutUser(dispatch){
+    localStorage.clear()
+    return dispatch({type: 'logoutUser'})
 }
