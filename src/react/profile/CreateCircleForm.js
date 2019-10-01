@@ -22,6 +22,10 @@ const style = {
     logo: {
         marginLeft: '25%',
         width: '15%'
+    },
+    div: {
+        maxHeight: '222px',
+        overflow: 'auto'
     }
 }
  
@@ -147,7 +151,9 @@ class CreateCircleForm extends Component {
                             <Form.Text className="text-muted"></Form.Text>
                         </Form.Group>
                         <Form.Group >
-                            {this.renderAddUsers()}
+                            <div style={style.div}>
+                                {this.renderAddUsers()}
+                            </div>
                         </Form.Group>
                         <ButtonToolbar className="justify-content-md-center">
                             <Button style={style.button} type="submit">

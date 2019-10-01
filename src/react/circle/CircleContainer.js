@@ -12,7 +12,7 @@ const style = {
         border: '1px solid grey'
     },
     div: {
-        margin: '100px'
+        margin: '50px'
     },
     head: {
         backgroundColor: 'grey',

@@ -16,6 +16,17 @@ const style = {
         lineHeight: '1.33',
         backgroundColor: '#ced4d9',
         marginRight: '1em'
+    },
+    list: {
+        maxHeight: '390px',
+        overflow: 'scroll'
+    },
+    header: {
+        marginLeft: '.5em'
+    },
+    members: {
+        maxHeight: '495px',
+        overflow: 'scroll'
     }
 }
 
@@ -74,10 +85,10 @@ class CircleUsers extends Component {
         return (
             <Container>
                 <Row >
-                    <h1 className='mr-auto'>MEMBERS</h1>
+                    <h1 style={style.header} className='mr-auto'>MEMBERS</h1>
                     <button onClick={this.handleClick} style={style.addButton}><AddCircleOutlineTwoToneIcon/></button>
                 </Row>
-                <Row xs={12} >
+                <Row xs={12} style={style.members}>
                     {this.renderUsers()}
                 </Row>
                 <Modal
@@ -103,7 +114,7 @@ class CircleUsers extends Component {
                                 <Form.Text className="text-muted"></Form.Text>
                             </Form.Group>
                         </Form>
-                        <ListGroup >
+                        <ListGroup style={style.list}>
                             {this.renderAddUsers()}
                         </ListGroup>
                     </Modal.Body>

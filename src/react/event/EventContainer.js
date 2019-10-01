@@ -12,7 +12,7 @@ const style = {
         border: '1px solid grey'
     },
     div: {
-        margin: '100px'
+        margin: '50px'
     },
     head: {
         backgroundColor: 'grey',
@@ -33,11 +33,13 @@ class EventContainer extends Component {
             return (
             <div>
                 <Row>
-                    <Col xs={8}>
+                    <Col xs={6}>
                         <EventInformation user={this.props.user} event={this.props.event}/>
-                        <EventComments comments={this.props.event.comments} />
                     </Col>
-                    <Col xs={4}>
+                    <Col xs={3}>
+                        <EventComments event={this.props.event} />
+                    </Col>
+                    <Col xs={3}>
                         <EventAttendance users={this.props.event.users} invites={this.props.event.invites}/>
                     </Col>
                 </Row>

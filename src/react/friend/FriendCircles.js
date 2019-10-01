@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import FriendCircle from './FriendCircle'
 import {Col, Row} from 'react-bootstrap'
 
+const style = {
+    row: {
+        margin: 'auto'
+    }
+}
+
 class FriendCircles extends Component {
 
     renderCircles = () => {
@@ -12,7 +18,7 @@ class FriendCircles extends Component {
 
     render() {
         return (
-            <Row>
+            <Row style={style.row}>
                 {this.renderCircles()}
             </Row>
         );

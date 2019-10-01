@@ -34,6 +34,7 @@ class CircleEvents extends Component {
                   alt="event_img"
                   style={style.image}
                   width="900"
+                  height="550"
                 />
                 <Carousel.Caption>
                   <h3>{event.name}</h3>

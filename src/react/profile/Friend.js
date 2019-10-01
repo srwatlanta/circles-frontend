@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Row, ListGroup, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {fetchFriend} from '../../redux/actions/friendshipActions'
+import Radium from 'radium'
 
 
 const style = {
@@ -12,7 +13,7 @@ const style = {
     },
     username: {
         margin: 'auto',
-        color: 'black'
+        color: 'black',
     },
     row: {
         marginLeft: '1em'

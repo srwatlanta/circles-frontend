@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import uuid from 'uuid'
 import Circle from './Circle'
-import {Col, Row} from 'react-bootstrap'
+import {Row} from 'react-bootstrap'
 import AddCircleOutlineTwoToneIcon from '@material-ui/icons/AddCircleOutlineTwoTone';
 import CreateCircleForm from './CreateCircleForm';
+import Radium from 'radium'
 
 const style = {
     addButton: {
@@ -16,11 +17,19 @@ const style = {
         lineHeight: '1.33',
         backgroundColor: '#ced4d9',
         marginTop: '1em',
-        marginRight: '1em'
+        marginLeft: '1em',
+        ':hover': {
+            boxShadow: '0 0 10px black'
+        }
     },
     row: {
-        maxHeight: '460px',
-        overflowY: 'scroll'
+        paddingLeft: '1em',
+        display: 'flex',
+        flexWrap: 'nowrap',
+        overflowX: 'auto'
+    },
+    col: {
+        flex: '0 0 auto',  
     }
 }
 
@@ -45,9 +54,9 @@ class UserCircles extends Component {
     renderCircles = () => {
         return this.props.circles.map(circle => {
             return (
-                <Col style={style.col}>
+                <div style={style.col}>
                     <Circle key={uuid()} circle={circle}/>
-                </Col>
+                </div>
             )
         })
     }
@@ -55,8 +64,7 @@ class UserCircles extends Component {
     render() {
         return (
             <React.Fragment>
-                <Row xs={12} style={style.row}>
-                    {this.renderCircles()}
+                <Row style={style.row}>
                     <button 
                     onClick={this.openModal} 
                     type="button" 
@@ -64,7 +72,7 @@ class UserCircles extends Component {
                     style={style.addButton}>
                         <AddCircleOutlineTwoToneIcon fontSize='large'/>
                     </button>
-
+                    {this.renderCircles()}
                 </Row>
                 {this.state.modalClicked && <CreateCircleForm modalClicked={this.state.modalClicked} closeModal={this.closeModal}/>}
             </React.Fragment>
@@ -78,4 +86,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(UserCircles);
+export default connect(mapStateToProps)(Radium(UserCircles));

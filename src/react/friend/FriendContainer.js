@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Row, Spinner, Container} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {clearFriend} from '../../redux/actions/friendshipActions'
-import UserInfo from './FriendInfo'
+import FriendInfo from './FriendInfo'
 import UserCircles from './FriendCircles'
 import AddFriend from './AddFriend'
 
@@ -26,7 +26,7 @@ class FriendContainer extends Component {
             return (
             <div>
                 <Row>
-                    <UserInfo user={this.props.friend} clear={this.props.clearFriend}/>
+                    <FriendInfo user={this.props.friend} clear={this.props.clearFriend}/>
                 </Row>
                 <hr></hr>
                 <Row>

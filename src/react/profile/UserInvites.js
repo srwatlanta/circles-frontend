@@ -4,15 +4,22 @@ import Invite from './Invite'
 import uuid from 'uuid'
 import {connect} from 'react-redux'
 import CreatEventForm from './CreateEventForm'
+import Radium from 'radium'
 
 const style = {
     section: {
-        margin: '4em'
+        margin: '4em',
+        borderRadius: '25px'
     },
     button: {
+        borderRadius: '5px',
         backgroundColor: '#d6942c',
         borderColor: '#d6942c',
-        minHeight: '80px'
+        minHeight: '40px',
+        ':hover': {
+            border: '2px solid black',
+            fontWeight: '600'        
+        }
     },
     list: {
         maxHeight: '500px',
@@ -20,8 +27,9 @@ const style = {
     }
 }
 
-class UserInvites extends Component {
 
+class UserInvites extends Component {
+    
     state = {
         modalClicked: false
     }
@@ -51,12 +59,12 @@ class UserInvites extends Component {
     render() {
         return (
             <Row className="justify-content-md-center" style={style.section}>
-                    <ListGroup style={style.list}>
-                        {this.props.invites.length > 0 ? <h1>Invites</h1> : null}
-                        <Button onClick={this.handleClick} style={style.button}>Create New Event</Button>
-                        {this.renderInvites()}
-                        {this.state.modalClicked && <CreatEventForm user={this.props.user} modalClicked={this.state.modalClicked} closeModal={this.closeModal}/>}
-                    </ListGroup>
+                <ListGroup style={style.list}>
+                    {this.props.invites.length > 0 ? <h1><strong>Invites</strong></h1> : null}
+                    {this.renderInvites()}
+                    <button onClick={this.handleClick} style={style.button}>Create New Event</button>                        
+                    {this.state.modalClicked && <CreatEventForm user={this.props.user} modalClicked={this.state.modalClicked} closeModal={this.closeModal}/>}
+                </ListGroup>
             </Row>
         );
     }
@@ -69,4 +77,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(UserInvites);
+export default connect(mapStateToProps)(Radium(UserInvites));

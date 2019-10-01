@@ -14,10 +14,15 @@ const style = {
         marginLeft: '4px'
     },
     drop: {
-        color: '#515b64'
+        color: '#515b64',
+        width: '100%'
     },
     icon: {
         marginRight: '8px'
+    },
+    bar: {
+        color: '#515b64',
+        backgroundColor: 'rgba(0,0,0,0.04)'
     }
 }
 
@@ -59,7 +64,7 @@ class NavBar extends Component {
 
     render() {
         return (
-            <Navbar bg="light" expand="lg" style={style.drop}>
+            <Navbar expand="xl" style={style.bar}>
                 <Navbar.Brand href='http://localhost:3001/about'>
                     <img
                         src={require("../../images/circles.svg")}

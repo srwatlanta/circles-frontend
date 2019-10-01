@@ -23,7 +23,9 @@ const style = {
         textDecoration: 'none'
     },
     row: {
-        backgroundColor: '#ced4d9'
+        backgroundColor: 'white',
+        borderRadius: '5px'
+
     },
     button: {
         minWidth: '150px'

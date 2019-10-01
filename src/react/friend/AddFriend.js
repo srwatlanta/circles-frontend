@@ -13,8 +13,8 @@ const style= {
         borderRadius: '35px',
         fontSize: '16px',
         lineHeight: '1.33',
-        marginRight: '1em',
-        backgroundColor: 'grey'
+        backgroundColor: 'grey',
+        margin: 'auto'
     }
 }
 
@@ -45,7 +45,7 @@ class componentName extends Component {
 
     render() {
         return (
-            <div>
+            <div style={style.button}>
                 {this.renderButton()}
             </div>
         );

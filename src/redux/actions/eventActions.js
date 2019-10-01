@@ -78,3 +78,30 @@ export function createEvent(data, history){
         })
     }
 }
+
+export function createComment(comment, userId, eventId) {
+    const token = localStorage.token
+    const reqObj = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accepts': 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            comment: {
+                comment: comment,
+                user_id: userId,
+                event_id: eventId
+            }
+        })
+    }
+    return(dispatch) => {
+        dispatch({type: 'CREATING_COMMENT'})
+        return fetch('http://localhost:3000/comments', reqObj)
+        .then(res => res.json())
+        .then(event => {
+            dispatch({type: 'EVENT_SET', event})
+        })
+    }
+}

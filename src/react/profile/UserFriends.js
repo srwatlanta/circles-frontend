@@ -8,14 +8,20 @@ import FindFriend from './FindFriend'
 
 const style = {
     header: {
-        margin: '1.5em'
+        margin: '1em',
+        textAlign: 'center'
     },
     hr: {
         marginLeft: '1em'
     },
     div: {
-        minHeight: '825px',
-        maxHeight: '825px'
+        minHeight: '750px',
+        maxHeight: '750px',
+        borderTopRightRadius: '25px'
+    },
+    list: {
+        maxHeight: '630px',
+        overflow: 'scroll',
     }
 }
 
@@ -71,7 +77,7 @@ class UserFriends extends Component {
                 {this.props.activeFriend.name ?
                 <FriendContainer/>
                 : 
-                <ListGroup>
+                <ListGroup style={style.list}>
                     {this.renderFriends()}
                 </ListGroup>
                 }

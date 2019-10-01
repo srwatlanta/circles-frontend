@@ -3,11 +3,15 @@ import {Row} from 'react-bootstrap'
 import {Link} from 'react-browser-router'
 import {connect} from 'react-redux'
 import {clearFriend} from '../../redux/actions/friendshipActions'
+import Radium from 'radium'
 
 const style = {
     image: {
         borderRadius: '50%',
-        margin: '2em'
+        margin: '2em',
+        ':hover': {
+            border: '3px solid #eee'
+        }
     }
 }
 
@@ -34,4 +38,4 @@ class Circle extends Component {
     }
 }
 
-export default connect(null, {clearFriend})(Circle);
+export default connect(null, {clearFriend})(Radium(Circle));

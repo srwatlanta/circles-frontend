@@ -10,11 +10,16 @@ import {withRouter} from 'react-router-dom'
 import CircleContainer from './react/circle/CircleContainer'
 import EventContainer from './react/event/EventContainer'
 
-const eventfulAPIKEY = 'nX7Df7js95pkQ5s5'
+const eventfulAPIKEY = '&app_key=nX7Df7js95pkQ5s5'
 const eventAPI = 'http://api.eventful.com/rest/events/search?'
 //q=query&l=location&within=10&units=miles&t=time/date&app_key=appkey&category=string/id
 
-const colors = ["ced4d9", 'd6942c', "515b64"]
+
+const style = {
+  page: {
+    marginLeft: '1em'
+  }
+}
 
 class App extends Component {
   componentDidMount(){

@@ -3,7 +3,7 @@ import {Image} from 'react-bootstrap'
 
 const style= {
     div: {
-        marginLeft: '5px'
+        margin: 'auto'
     }
 }
 

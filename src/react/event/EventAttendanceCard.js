@@ -6,7 +6,7 @@ const style = {
         borderRadius: '50%'
     },
     card: {
-        width: '12rem',
+        width: '10rem',
         margin: '1em'
 
     }
