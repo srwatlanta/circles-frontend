@@ -34,7 +34,7 @@ class EventContainer extends Component {
             <div>
                 <Row>
                     <Col xs={8}>
-                        <EventInformation event={this.props.event}/>
+                        <EventInformation user={this.props.user} event={this.props.event}/>
                         <EventComments comments={this.props.event.comments} />
                     </Col>
                     <Col xs={4}>
@@ -59,7 +59,8 @@ class EventContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        event: state.eventShow
+        event: state.eventShow,
+        user: state.user
     }
 }
 

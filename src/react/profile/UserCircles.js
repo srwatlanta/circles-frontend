@@ -17,6 +17,10 @@ const style = {
         backgroundColor: '#ced4d9',
         marginTop: '1em',
         marginRight: '1em'
+    },
+    row: {
+        maxHeight: '460px',
+        overflowY: 'scroll'
     }
 }
 
@@ -41,7 +45,7 @@ class UserCircles extends Component {
     renderCircles = () => {
         return this.props.circles.map(circle => {
             return (
-                <Col>
+                <Col style={style.col}>
                     <Circle key={uuid()} circle={circle}/>
                 </Col>
             )

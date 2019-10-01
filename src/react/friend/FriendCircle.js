@@ -10,14 +10,15 @@ const style = {
         margin: '.5em'
     },
     font: {
-        fontSize: '11px'
-    }
+        fontSize: '11px',
+        textAlign: 'center'
+    },
 }
 
 class FriendCircle extends Component {
     render() {
         return (
-            <React.Fragment>
+            <React.Fragment className="justify-content-md-center">
                 <Row className="justify-content-md-center">
                     <Link to={`/circles/${this.props.circle.id}`} onClick={()=>this.props.clearFriend()}>
                     <img 

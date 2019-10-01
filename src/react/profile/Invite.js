@@ -56,7 +56,7 @@ class Invite extends Component {
                     style={style.image}
                     width= '45'
                     />
-                    <Link to={`/events/${this.props.invite.id}`} onClick={this.props.clearFriend}>
+                    <Link to={`/events/${this.props.invite.event.id}`} onClick={this.props.clearFriend}>
                     <h3 style={style.event}>{this.props.invite.event.name}</h3>
                     </Link>
                     <Dropdown className='ml-auto' as={ButtonGroup} >

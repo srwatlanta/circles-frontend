@@ -68,6 +68,7 @@ class NavBar extends Component {
                     />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                {this.props.user.username ?
                 <Nav className='ml-auto'>
                     <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
                         <NavDropdown title={this.props.user.username} >
@@ -85,6 +86,8 @@ class NavBar extends Component {
                         </Link>
                     </Navbar.Collapse>
                 </Nav>
+                :
+                null}
                 <Modal
                     size="md"
                     show={this.state.modalClicked}
