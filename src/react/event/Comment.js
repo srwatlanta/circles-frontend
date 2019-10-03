@@ -7,14 +7,20 @@ const style = {
         paddingBottom: '.5em'
     },
     image: {
-        paddingRight: '1em'
+        paddingRight: '1em',
+        borderRadius: '20%',
     },
     text: {
         marginTop: '1em'
     },
     username: {
-        color: '#d6942c',
-        marginRight: '2em'
+        color: 'orange',
+        marginRight: '2em',
+        fontWeight: '600'
+    },
+    pic: {
+        borderRadius: '5%',
+        boxShadow: '1px 2px 3px grey'
     }
 }
 
@@ -27,6 +33,7 @@ class Comment extends Component {
                         <Image
                             src={this.props.comment.proper_user.img_url}
                             width='50'
+                            style={style.pic}
                         />
                     </div>
                     <div style={style.text}>

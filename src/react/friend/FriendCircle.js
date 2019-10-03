@@ -7,7 +7,8 @@ import {connect} from 'react-redux'
 const style = {
     image: {
         borderRadius: '50%',
-        margin: '.5em'
+        margin: '.5em',
+        boxShadow: '5px 10px 18px #888888'
     },
     font: {
         fontSize: '11px',

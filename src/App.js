@@ -10,24 +10,14 @@ import {withRouter} from 'react-router-dom'
 import CircleContainer from './react/circle/CircleContainer'
 import EventContainer from './react/event/EventContainer'
 
-const eventfulAPIKEY = '&app_key=nX7Df7js95pkQ5s5'
-const eventAPI = 'http://api.eventful.com/rest/events/search?'
-//q=query&l=location&within=10&units=miles&t=time/date&app_key=appkey&category=string/id
-
-
-const style = {
-  page: {
-    marginLeft: '1em'
-  }
-}
 
 class App extends Component {
   componentDidMount(){
       if (localStorage.token === undefined || localStorage.token === 'undefined'){
         return null
       }else{
-        this.props.currentUser(this.props.history)
         this.props.fetchAllUsers()
+        this.props.currentUser(this.props.history)
       }
   }
   
@@ -35,7 +25,7 @@ class App extends Component {
   
   render(){
     return (
-      <div>
+      <div >
         <NavBar />
         <Switch>
           <Route exact path='/login' component={LoginContainer}/>

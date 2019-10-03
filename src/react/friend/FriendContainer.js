@@ -10,9 +10,6 @@ const style = {
     left: {
         border: '1px solid grey'
     },
-    div: {
-        margin: '2.5em',
-    },
     head: {
         backgroundColor: 'grey',
         marginBottom: '1em'

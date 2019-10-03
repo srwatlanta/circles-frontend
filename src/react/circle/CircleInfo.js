@@ -5,7 +5,8 @@ import {connect} from 'react-redux'
 const style ={
     image: {
         borderRadius: '50%',
-        margin: '2em'
+        margin: '1em',
+        boxShadow: '2px 3px 7px grey'
     },
     container: {
         width: '50%',
@@ -24,6 +25,7 @@ class CircleInfo extends Component {
                 <img
                 src={this.props.circle.img_url}
                 width="200"
+                height='200'
                 style={style.image}
                 />
                 <h3 style={style.text}>{this.props.circle.name}</h3>

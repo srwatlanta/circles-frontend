@@ -8,22 +8,35 @@ import Radium from 'radium'
 
 const style = {
     section: {
-        margin: '4em',
-        borderRadius: '25px'
+        width: '60%',
+        margin: 'auto',
+        borderRadius: '25px',
+        border: '20px solid #6A6A72',
+        paddingBottom: '3em',
+        boxShadow: '3px 7px 12px grey',
+        maxHeight: '450px'
     },
     button: {
+        width: '60%',
         borderRadius: '5px',
-        backgroundColor: '#d6942c',
+        backgroundColor: 'orange',
         borderColor: '#d6942c',
+        color: '#515158',
         minHeight: '40px',
+        fontWeight: '600',
+        letterSpacing: '0.05em',
         ':hover': {
-            border: '2px solid black',
-            fontWeight: '600'        
+            border: '2px solid #9D6600',
+            fontWeight: '800'        
         }
     },
     list: {
-        maxHeight: '500px',
-        overflow: 'auto'
+        minWidth: '60%',
+        maxHeight: '340px',
+        overflow: 'auto',
+    },
+    head: {
+        fontSize: '1.5em'
     }
 }
 
@@ -60,11 +73,11 @@ class UserInvites extends Component {
         return (
             <Row className="justify-content-md-center" style={style.section}>
                 <ListGroup style={style.list}>
-                    {this.props.invites.length > 0 ? <h1><strong>Invites</strong></h1> : null}
+                    {this.props.invites.length > 0 ? <h1><strong style={style.head}>Invites</strong></h1> : null}
                     {this.renderInvites()}
-                    <button onClick={this.handleClick} style={style.button}>Create New Event</button>                        
                     {this.state.modalClicked && <CreatEventForm user={this.props.user} modalClicked={this.state.modalClicked} closeModal={this.closeModal}/>}
                 </ListGroup>
+                <button onClick={this.handleClick} style={style.button}>Create New Event</button>
             </Row>
         );
     }

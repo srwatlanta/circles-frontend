@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import uuid from 'uuid'
 import Circle from './Circle'
-import {Row} from 'react-bootstrap'
+import {Row, Button} from 'react-bootstrap'
 import AddCircleOutlineTwoToneIcon from '@material-ui/icons/AddCircleOutlineTwoTone';
 import CreateCircleForm from './CreateCircleForm';
 import Radium from 'radium'
@@ -15,9 +15,11 @@ const style = {
         borderRadius: '35px',
         fontSize: '24px',
         lineHeight: '1.33',
-        backgroundColor: '#ced4d9',
+        backgroundColor: 'rgba(0,0,0,0.04)',
         marginTop: '1em',
         marginLeft: '1em',
+        boxShadow: '2px 5px 9px grey',
+        border: '1px solid rgba(0,0,0,0.04)',
         ':hover': {
             boxShadow: '0 0 10px black'
         }
@@ -26,10 +28,14 @@ const style = {
         paddingLeft: '1em',
         display: 'flex',
         flexWrap: 'nowrap',
-        overflowX: 'auto'
+        overflowX: 'auto',
+        marginBottom: '4em',
     },
     col: {
         flex: '0 0 auto',  
+    },
+    ico: {
+        color: '#FF6f61',
     }
 }
 
@@ -65,13 +71,12 @@ class UserCircles extends Component {
         return (
             <React.Fragment>
                 <Row style={style.row}>
-                    <button 
+                    <Button 
                     onClick={this.openModal} 
                     type="button" 
-                    className='ml-auto'
                     style={style.addButton}>
-                        <AddCircleOutlineTwoToneIcon fontSize='large'/>
-                    </button>
+                        <AddCircleOutlineTwoToneIcon style={style.ico} fontSize='large'/>
+                    </Button>
                     {this.renderCircles()}
                 </Row>
                 {this.state.modalClicked && <CreateCircleForm modalClicked={this.state.modalClicked} closeModal={this.closeModal}/>}

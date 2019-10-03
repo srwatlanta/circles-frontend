@@ -9,7 +9,8 @@ const style = {
     image: {
         borderRadius: '50%',
         marginRight: '1em',
-        marginleft: '1em'
+        marginleft: '1em',
+        boxShadow: '1px 2px 3px grey',
     },
     username: {
         margin: 'auto',
@@ -40,7 +41,7 @@ class Friend extends Component {
         return (
             <ListGroup.Item onClick={this.handleClick} style={style.row}>
                 <Row>
-                    <h4 style={style.username}>{this.friend.username}</h4>
+                    <h5 style={style.username}>{this.friend.username}</h5>
                     <img
                     className='ml-auto'
                     src={this.friend.img_url}

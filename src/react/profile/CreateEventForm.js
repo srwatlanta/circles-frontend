@@ -11,6 +11,10 @@ const style = {
         margin: '5px',
         backgroundColor: '#e77d2c',
         border: '1px'
+    },
+    circles: {
+        maxHeight: '155px',
+        overflow:'scroll'
     }
 }
 
@@ -143,7 +147,7 @@ class CreateEventForm extends Component {
                         </Form.Group>
                         <hr></hr>
                         <Form.Label>Invite Circles To Event</Form.Label>
-                            <Row>
+                            <Row style={style.circles}>
                                 {this.renderCircles()}
                             </Row>
                         <Form.Group >

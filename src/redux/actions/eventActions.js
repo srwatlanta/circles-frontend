@@ -47,6 +47,7 @@ export function editEvent(id, data){
 }
 
 export function createEvent(data, history){
+    console.log(data)
     const token = localStorage.token
     const reqObj = {
         method: 'POST',

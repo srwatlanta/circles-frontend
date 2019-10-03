@@ -11,7 +11,8 @@ import {editUser, logoutUser} from '../../redux/actions/userActions'
 const style = {
     image: {
         borderRadius: '50%',
-        marginLeft: '4px'
+        marginLeft: '.5em',
+        marginRight: '1em'
     },
     drop: {
         color: '#515b64',
@@ -22,7 +23,13 @@ const style = {
     },
     bar: {
         color: '#515b64',
-        backgroundColor: 'rgba(0,0,0,0.04)'
+        backgroundColor: 'rgba(0,0,0,0.04)',
+        padding: '0',
+        marginBottom: '1em',
+        width: '100vw',
+    },
+    brand: {
+        marginLeft: '1.5em'
     }
 }
 
@@ -65,7 +72,7 @@ class NavBar extends Component {
     render() {
         return (
             <Navbar expand="xl" style={style.bar}>
-                <Navbar.Brand href='http://localhost:3001/about'>
+                <Navbar.Brand style={style.brand} href='http://localhost:3001/profile'>
                     <img
                         src={require("../../images/circles.svg")}
                         width='110'

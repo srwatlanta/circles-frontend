@@ -5,23 +5,28 @@ import uuid from 'uuid'
 import {ListGroup, Form} from 'react-bootstrap'
 import FriendContainer from '../friend/FriendContainer';
 import FindFriend from './FindFriend'
+import {clearFriend} from '../../redux/actions/friendshipActions'
 
 const style = {
     header: {
-        margin: '1em',
+        fontSize: '3em',
+        margin: '.5em',
         textAlign: 'center'
     },
     hr: {
         marginLeft: '1em'
     },
     div: {
-        minHeight: '750px',
-        maxHeight: '750px',
-        borderTopRightRadius: '25px'
+        minHeight: '100%',
+        maxHeight: '100%',
+        borderTopRightRadius: '25px',
     },
     list: {
-        maxHeight: '630px',
-        overflow: 'scroll',
+        maxHeight: '80vh',
+        overflow: 'auto',
+    },
+    input: {
+        boxShadow: '1px 2px 3px orange'
     }
 }
 
@@ -46,6 +51,7 @@ class UserFriends extends Component {
     }
 
     handleChange = (event) => {
+        this.props.clearFriend()
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -60,7 +66,7 @@ class UserFriends extends Component {
     render() {
         return (
             <div style={style.div}>
-                <h1 style={style.header}>Friends</h1>
+                <h1 style={style.header}><strong>Friends</strong></h1>
                 <Form style={style.hr}>
                     <Form.Group controlId="formSearch">
                         <Form.Control 
@@ -68,6 +74,7 @@ class UserFriends extends Component {
                             placeholder="Find Friends" 
                             name="search" 
                             value={this.state.search} 
+                            style={style.input}
                             onChange={(event) => this.handleChange(event)}
                         />
                         <Form.Text className="text-muted"></Form.Text>
@@ -95,4 +102,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(UserFriends);
+export default connect(mapStateToProps, {clearFriend})(UserFriends);

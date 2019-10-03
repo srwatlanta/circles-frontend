@@ -8,14 +8,20 @@ const style = {
     input: {
         marginBottom: '1em',
         padding: '.5em',
-        border: '1px solid grey'
+        border: '1px solid grey',
+        borderRadius: '2%',
+        boxShadow: '1px 2px 4px grey'
     },
     button: {
-        backgroundColor: '#d6942c',
-        border: '1px solid grey'
+        backgroundColor: 'orange',
+        border: '1px solid orange',
+        boxShadow: '1px 2px 4px grey'
     },
     container: {
         marginLeft: '1em'
+    },
+    text: {
+        boxShadow: '1px 2px 4px grey'
     }
 }
 
@@ -40,6 +46,9 @@ class EventComments extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.createComment(this.state.comment, this.props.user.id, this.props.event.id)
+        this.setState({
+            comment: ''
+        })
     }
 
     render() {
@@ -52,12 +61,13 @@ class EventComments extends Component {
                 <div style={style.input}>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Group>
-                            <Form.Label>Leave A Comment</Form.Label>
+                            <Form.Label>Leave a comment</Form.Label>
                             <Form.Control
                                 value={this.state.comment}
                                 name='comment'
                                 type='text'
                                 onChange={this.handleChange}
+                                style={style.text}
                             />
                             <Form.Text></Form.Text>
                         </Form.Group>

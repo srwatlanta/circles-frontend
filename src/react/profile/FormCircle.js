@@ -5,7 +5,7 @@ import CheckRoundedIcon from '@material-ui/icons/CheckRounded';
 const style = {
     image: {
         borderRadius: '50%',
-        margin: '2em'
+        margin: '1em'
     },
     p: {
         fontSize: '11px',
@@ -31,8 +31,8 @@ class FormCircle extends Component {
                 <Row className="justify-content-md-center">
                     <Image 
                     src={this.props.circle.img_url}
-                    width='50'
-                    height='50'
+                    width='60'
+                    height='60'
                     onClick={this.handleClick}
                     style={style.image}
                     />

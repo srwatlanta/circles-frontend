@@ -4,7 +4,10 @@ import {Col, Row} from 'react-bootstrap'
 
 const style = {
     row: {
-        margin: 'auto'
+        margin: 'auto',
+        maxHeight: '90%',
+        maxWidth: '90%',
+        overflow: 'scroll'
     }
 }
 

@@ -9,14 +9,21 @@ import {Container, Col, Row} from 'react-bootstrap'
 
 const style = {
     left: {
-        border: '1px solid grey'
+        borderRadius: '2%'
     },
     div: {
         margin: '50px'
     },
     head: {
-        backgroundColor: 'grey',
-        marginBottom: '1em'
+        backgroundColor: '#ced4d9',
+        borderRadius: '2%'
+    },
+    users: {
+        paddingTop: '1em',
+        border: '1px solid grey',
+        borderRadius: '2%',
+        boxShadow: '2px 4px 9px orange',
+
     }
 }
 
@@ -37,7 +44,7 @@ class CircleContainer extends Component {
                         <Row style={style.head}>
                             <CircleInfo/>
                         </Row>
-                        <Row>
+                        <Row style={style.users}>
                             <CircleUsers/>
                         </Row>
                     </Col>

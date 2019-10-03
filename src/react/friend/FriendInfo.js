@@ -4,6 +4,11 @@ import {Image} from 'react-bootstrap'
 const style= {
     div: {
         margin: 'auto'
+    },
+    image: {
+        boxShadow: '5px 10px 18px #888888',
+        marginBottom: '1em',
+        borderRadius: '5%'
     }
 }
 
@@ -12,6 +17,7 @@ class FriendInfo extends Component {
         return (
             <div style={style.div}>
                 <Image
+                style={style.image}
                 onClick={() => this.props.clear()}
                 src={this.props.user.img_url}
                 alt={this.props.user.username}

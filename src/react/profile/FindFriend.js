@@ -8,7 +8,8 @@ const style = {
     image: {
         borderRadius: '50%',
         marginRight: '1em',
-        marginleft: '1em'
+        marginleft: '1em',
+        boxShadow: '1px 2px 3px grey'
     },
     username: {
         margin: 'auto',

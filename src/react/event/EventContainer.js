@@ -17,6 +17,13 @@ const style = {
     head: {
         backgroundColor: 'grey',
         marginBottom: '1em'
+    },
+    attend: {
+        backgroundColor: '#eee',
+        borderRadius: '3%',
+    },
+    mid: {
+        paddingRight: '0'
     }
 }
 
@@ -31,19 +38,19 @@ class EventContainer extends Component {
     waitForEvent = () => {
         if (this.props.event.name){
             return (
-            <div>
+            
                 <Row>
-                    <Col xs={6}>
+                    <Col xs={6} style={style.mid}>
                         <EventInformation user={this.props.user} event={this.props.event}/>
                     </Col>
-                    <Col xs={3}>
+                    <Col xs={3} >
                         <EventComments event={this.props.event} />
                     </Col>
-                    <Col xs={3}>
+                    <Col xs={3} style={style.attend}>
                         <EventAttendance users={this.props.event.users} invites={this.props.event.invites}/>
                     </Col>
                 </Row>
-            </div>
+            
             )
         } else {
             return <Container></Container>

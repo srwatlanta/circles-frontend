@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import EventAttendanceCard from './EventAttendanceCard'
 
+const style = {
+    div:{
+        maxHeight: '100vh',
+        overflow: 'scroll',
+    }
+}
+
 class EventAttendance extends Component {
 
     findUser = (id) => {
@@ -18,11 +25,9 @@ class EventAttendance extends Component {
 
     render() {
         return (
-            <Container>
-                <Row>
-                    {this.renderUsers()}
-                </Row>
-            </Container>
+            <Row style={style.div} className='justify-content-md-center'>
+                {this.renderUsers()}
+            </Row>
         );
     }
 }

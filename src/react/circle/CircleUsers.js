@@ -9,13 +9,15 @@ import AddCircleUser from './AddCircleUser'
 
 const style = {
     addButton: {
-        width: '40px',
-        height: '40px',
-        borderRadius: '35px',
-        fontSize: '16px',
-        lineHeight: '1.33',
-        backgroundColor: '#ced4d9',
-        marginRight: '1em'
+        width: '3em',
+        height: '3em',
+        borderRadius: '50%',
+        fontSize: '1em',
+        lineHeight: '1',
+        backgroundColor: 'orange',
+        marginRight: '1em',
+        border: '1px solid orange',
+        boxShadow: '1px 2px 4px grey'
     },
     list: {
         maxHeight: '390px',
@@ -26,6 +28,7 @@ const style = {
     },
     members: {
         maxHeight: '495px',
+        minHeight: '450px',
         overflow: 'scroll'
     }
 }
@@ -85,7 +88,7 @@ class CircleUsers extends Component {
         return (
             <Container>
                 <Row >
-                    <h1 style={style.header} className='mr-auto'>MEMBERS</h1>
+                    <h1 style={style.header} className='mr-auto'>Members</h1>
                     <button onClick={this.handleClick} style={style.addButton}><AddCircleOutlineTwoToneIcon/></button>
                 </Row>
                 <Row xs={12} style={style.members}>

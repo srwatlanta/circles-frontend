@@ -9,9 +9,14 @@ const style = {
     image: {
         borderRadius: '50%',
         margin: '2em',
+        border: '20px solid orange',
         ':hover': {
-            border: '3px solid #eee'
-        }
+            border: '1px solid grey'
+        },
+        boxShadow: '5px 10px 18px grey'
+    },
+    text: {
+        color: '#3d4849'
     }
 }
 
@@ -23,15 +28,14 @@ class Circle extends Component {
                     <Link to={`/circles/${this.props.circle.id}`} onClick={() => this.props.clearFriend()}>
                     <img 
                     src={this.props.circle.img_url}
-                    width='350'
-                    height='350'
+                    width='300'
+                    height='300'
                     style={style.image}
                     />
                     </Link>
-
                 </Row>
                 <Row className="justify-content-md-center">
-                    <h2>{this.props.circle.name}</h2>
+                    <h4 style={style.text}>{this.props.circle.name}</h4>
                 </Row>
             </React.Fragment>
         );

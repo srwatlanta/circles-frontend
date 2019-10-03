@@ -13,17 +13,19 @@ export function currentUser(history){
         .then(res =>res.json())
         .then(user => {
             dispatch({type: 'USER_SET', user: user.user})
-            // history.push('/profile')
+            history.push('/profile')
         })
-        .catch(error => alert('Please Provide Valid Credentials'))
-        // history.push('/login')
+        .catch(error => {
+            alert('Please Provide Valid Credentials')
+            history.push('/login')
+        })
+        
     }
 }
 
 export function loginUser(data, history){
     return(dispatch) => {
         dispatch({type: 'SENDING_LOGIN_INFO'})
-        console.log(data)
         return fetch('http://localhost:3000/login', {
             method: 'POST',
             headers: {
@@ -40,12 +42,13 @@ export function loginUser(data, history){
         .then(res => res.json())
         .then(data => {
             localStorage.token = data.jwt
-            dispatch({type: 'USER_SET', user: data.user})
+            dispatch({type: 'USER_SET', user: data.user}, fetchAllUsers())
             history.push('/profile')
         })
-        .catch(error => alert('Please Provide Valid Credentials'))
-        history.push('/login')
-
+        .catch(error => {
+            alert('Please Provide Valid Credentials')
+            history.push('/login')
+        })
     }
 }
 

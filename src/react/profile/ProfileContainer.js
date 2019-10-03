@@ -4,18 +4,28 @@ import UserCircles from './UserCircles'
 import UserFriends from './UserFriends'
 import UserInvites from './UserInvites'
 import {Col, Row} from 'react-bootstrap'
-import UserEvents from './UserEvents';
+import {withRouter} from 'react-router-dom'
+import {currentUser, fetchAllUsers} from '../../redux/actions/userActions'
 
 const style= {
     friends: {
-        backgroundColor: '#d6942c'
+        backgroundColor: '#eee'
     },
     main: {
         backgroundColor: '#f8f9fa',
-        width: '100%'
+        height: '100vh'
     }
 }
 class ProfileContainer extends Component {
+
+    componentDidMount(){
+        if (localStorage.token === undefined || localStorage.token === 'undefined'){
+            return null
+        }else{
+            this.props.fetchAllUsers()
+            this.props.currentUser(this.props.history)
+        }    
+    }
 
     
     render() {
@@ -27,7 +37,6 @@ class ProfileContainer extends Component {
                 <Col xs={10} style={style.main}>
                     <UserCircles/>
                     <UserInvites/>
-                    <UserEvents/>
                 </Col>
             </Row>
         );
@@ -40,4 +49,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(ProfileContainer);
+export default connect(mapStateToProps, {currentUser, fetchAllUsers})(withRouter(ProfileContainer));

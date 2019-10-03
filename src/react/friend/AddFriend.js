@@ -13,7 +13,18 @@ const style= {
         borderRadius: '35px',
         fontSize: '16px',
         lineHeight: '1.33',
-        backgroundColor: 'grey',
+        backgroundColor: '#838487',
+        border: '1px solid #838487',
+        margin: 'auto'
+    },
+    addButton :{
+        width: '30',
+        height: '30',
+        borderRadius: '35px',
+        fontSize: '16px',
+        lineHeight: '1.33',
+        backgroundColor: '#00539c',
+        border: '1px solid #00539c',
         margin: 'auto'
     }
 }
@@ -29,7 +40,7 @@ class componentName extends Component {
             let friendship = Number(Object.keys(x[0])[0])
             return <Button onClick={() => this.removeFriend(friendship)} style={style.button}><RemoveIcon/> Remove Friend</Button>
         }else{
-            return <Button onClick={() => this.addFriend(this.props.user.id, this.props.friend.id)} style={style.button}><AddCircleOutlineTwoToneIcon/> Add Friend</Button>
+            return <Button onClick={() => this.addFriend(this.props.user.id, this.props.friend.id)} style={style.addButton}><AddCircleOutlineTwoToneIcon/> Add Friend</Button>
         }
     }
 

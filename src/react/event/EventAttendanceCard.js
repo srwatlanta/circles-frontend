@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Card} from 'react-bootstrap'
+import Radium from 'radium'
 
 const style = {
     image: {
@@ -7,8 +8,31 @@ const style = {
     },
     card: {
         width: '10rem',
-        margin: '1em'
-
+        margin: '1em',
+    },
+    attendButton: {
+        backgroundColor: '#00539c',
+        minWidth: '9.5em',
+        width: '10rem',
+        margin: '1em',
+        boxShadow: '2px 3px 7px grey'
+    },
+    declineButton: {
+        backgroundColor: '#ff6f61',
+        minWidth: '9.5em',
+        width: '10rem',
+        margin: '1em',
+        boxShadow: '2px 3px 7px grey'
+    },
+    inviteButton: {
+        backgroundColor: '#838487',
+        width: '10rem',
+        margin: '1em',
+        boxShadow: '2px 3px 7px grey'
+    },
+    text: {
+        fontSize: '1em',
+        color: 'white'
     }
 }
 
@@ -17,20 +41,21 @@ class EventAttendanceCard extends Component {
     cardColor = () => {
         switch(this.props.status){
         case 'Attending':
-            return "success"
-        case 'Invited':
-            return "light"
+            return style.attendButton
         case 'Declined':
-            return "danger"
+            return style.declineButton
+        case 'Invited':
+            return style.inviteButton
         }
     }
 
+
     render() {
         return (
-            <Card bg={this.cardColor()} style={style.card}>
+            <Card style={this.cardColor()}>
                 <Card.Img variant="top" src={this.props.user.img_url} width='75' />
                 <Card.Body>
-                    <Card.Title>{this.props.user.username}</Card.Title>
+                    <Card.Title style={style.text}>{this.props.user.username}</Card.Title>
                     <Card.Text><strong>{this.props.status}</strong></Card.Text>
                 </Card.Body>
             </Card>
@@ -38,4 +63,4 @@ class EventAttendanceCard extends Component {
     }
 }
 
-export default EventAttendanceCard;
+export default Radium(EventAttendanceCard);
