@@ -11,16 +11,17 @@ const style = {
         borderRadius: '20%',
     },
     text: {
-        marginTop: '1em'
+        marginTop: '.6em',
+        justifyContent: 'flex-end',
     },
     username: {
         color: 'orange',
-        marginRight: '2em',
         fontWeight: '600'
     },
     pic: {
         borderRadius: '5%',
-        boxShadow: '1px 2px 3px grey'
+        boxShadow: '1px 2px 3px grey',
+        marginRight: '1em'
     }
 }
 
@@ -35,10 +36,10 @@ class Comment extends Component {
                             width='50'
                             style={style.pic}
                         />
+                        <span style={style.username}>{this.props.comment.proper_user.username}</span>
                     </div>
                     <div style={style.text}>
-                        <span style={style.username}>{this.props.comment.proper_user.username}</span>
-                        <span style={style.comment}>{this.props.comment.comment}</span>
+                        <p>{this.props.comment.comment}</p>
                     </div>
                 </Row>
             </ListGroup.Item>

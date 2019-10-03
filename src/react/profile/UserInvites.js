@@ -17,11 +17,12 @@ const style = {
         maxHeight: '450px'
     },
     button: {
-        width: '60%',
+        marginLeft: '11.2em',
+        width: '35em',
         borderRadius: '5px',
         backgroundColor: 'orange',
         borderColor: '#d6942c',
-        color: '#515158',
+        color: 'white',
         minHeight: '40px',
         fontWeight: '600',
         letterSpacing: '0.05em',
@@ -31,12 +32,17 @@ const style = {
         }
     },
     list: {
-        minWidth: '60%',
-        maxHeight: '340px',
+        margin: '0 auto 0 auto',
+        minWidth: '35em',
+        maxHeight: '16.3em',
         overflow: 'auto',
     },
     head: {
         fontSize: '1.5em'
+    },
+    top: {
+        marginLeft: '11em',
+        display: 'inline-block'
     }
 }
 
@@ -71,14 +77,18 @@ class UserInvites extends Component {
 
     render() {
         return (
-            <Row className="justify-content-md-center" style={style.section}>
-                <ListGroup style={style.list}>
+            <div style={style.section}>
+                <Row style={style.top}>
                     {this.props.invites.length > 0 ? <h1><strong style={style.head}>Invites</strong></h1> : null}
-                    {this.renderInvites()}
-                    {this.state.modalClicked && <CreatEventForm user={this.props.user} modalClicked={this.state.modalClicked} closeModal={this.closeModal}/>}
-                </ListGroup>
+                </Row>
+                <Row>
+                    <ListGroup style={style.list}>
+                        {this.renderInvites()}
+                        {this.state.modalClicked && <CreatEventForm user={this.props.user} modalClicked={this.state.modalClicked} closeModal={this.closeModal}/>}
+                    </ListGroup>
+                </Row>
                 <button onClick={this.handleClick} style={style.button}>Create New Event</button>
-            </Row>
+            </div>
         );
     }
 }

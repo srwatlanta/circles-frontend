@@ -9,7 +9,7 @@ import {withRouter} from 'react-router-dom'
 const style = {
     button: {
         margin: '5px',
-        backgroundColor: '#e77d2c',
+        backgroundColor: 'orange',
         border: '1px'
     },
     circles: {

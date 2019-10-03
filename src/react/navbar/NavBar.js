@@ -18,6 +18,9 @@ const style = {
         color: '#515b64',
         width: '100%'
     },
+    dropdown: {
+        fontSize: '1.1em'
+    },
     icon: {
         marginRight: '8px'
     },
@@ -30,6 +33,11 @@ const style = {
     },
     brand: {
         marginLeft: '1.5em'
+    },
+    button: {
+        backgroundColor: 'orange',
+        border: '1px solid orange',
+        boxShadow: '1px 2px 4px grey'
     }
 }
 
@@ -83,8 +91,8 @@ class NavBar extends Component {
                 {this.props.user.username ?
                 <Nav className='ml-auto'>
                     <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
-                        <NavDropdown title={this.props.user.username} >
-                            <NavDropdown.Item style={style.drop} href="/profile"><AccountCircleIcon style={style.icon}/>Go To Profile</NavDropdown.Item>
+                        <NavDropdown style={style.dropdown} drop='left' title={this.props.user.username} >
+                            <NavDropdown.Item style={style.drop} href="/profile"><AccountCircleIcon style={style.icon}/>Go to Profile</NavDropdown.Item>
                             <NavDropdown.Item onClick={this.handleClick} style={style.drop} ><EditIcon style={style.icon}/>Edit Profile</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item onClick={this.logoutUser}style={style.drop} href="/login"><ExitToAppIcon style={style.icon}/>Logout</NavDropdown.Item>

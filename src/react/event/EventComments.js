@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Container, Form, Button, ListGroup, Row} from 'react-bootstrap';
+import {Container, Form, Button, ListGroup, Row, FormControl} from 'react-bootstrap';
 import Comment from './Comment'
 import {createComment} from '../../redux/actions/eventActions'
 import {connect} from 'react-redux'
@@ -15,7 +15,7 @@ const style = {
     button: {
         backgroundColor: 'orange',
         border: '1px solid orange',
-        boxShadow: '1px 2px 4px grey'
+        boxShadow: '1px 2px 4px grey',
     },
     container: {
         marginLeft: '1em'
@@ -61,8 +61,8 @@ class EventComments extends Component {
                 <div style={style.input}>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Group>
-                            <Form.Label>Leave a comment</Form.Label>
                             <Form.Control
+                                placeholder="Leave a comment"
                                 value={this.state.comment}
                                 name='comment'
                                 type='text'

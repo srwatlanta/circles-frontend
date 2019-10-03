@@ -12,6 +12,7 @@ const style = {
     },
     attendButton: {
         backgroundColor: '#00539c',
+        color: 'white',
         minWidth: '9.5em',
         width: '10rem',
         margin: '1em',

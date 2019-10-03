@@ -28,17 +28,20 @@ const style = {
     attendButton: {
         backgroundColor: '#00539c',
         border: '1px solid black',
-        minWidth: '9.5em'
+        minWidth: '9.5em',
+        cursor: 'default'
     },
     declineButton: {
         backgroundColor: '#ff6f61',
         border: '1px solid black',
-        minWidth: '9.5em'
+        minWidth: '9.5em',
+        cursor: 'default'
     },
     inviteButton: {
         backgroundColor: '#838487',
         border: '1px solid black',
-        minWidth: '9.5em'
+        minWidth: '9.5em',
+        cursor: 'default'
     },
     attendDrop: {
         backgroundColor: '#00539c',

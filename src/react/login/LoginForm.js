@@ -8,11 +8,13 @@ import CreateAccountModal from './CreateAccountModal';
 const style = {
     button: {
         margin: '5px',
-        backgroundColor: '#e77d2c',
-        border: '1px'
+        backgroundColor: 'orange',
+        border: '1px',
+        boxShadow: '1px 2px 4px grey'
     },
     form: {
-        paddingTop: '20px',
+        paddingTop: '1.25em',
+        paddingBottom: '.5em'
     },
     border: {
         backgroundColor: '#515b64'

@@ -8,24 +8,24 @@ import RemoveIcon from '@material-ui/icons/Remove';
 const style = {
     image: {
         borderRadius: '50%',
-        marginRight: '1em'
+        marginRight: '1em',
+        boxShadow: '1px 2px 3px grey'
     },
     addButton: {
         width: '30',
         height: '30',
         borderRadius: '35px',
         fontSize: '16px',
-        lineHeight: '1.33',
-        backgroundColor: 'green',
-        marginRight: '1em'
+        backgroundColor: '#00539c',
+        marginRight: '1em',
+        color: 'white'
     },
     minusButton: {
         width: '30',
         height: '30',
         borderRadius: '35px',
         fontSize: '16px',
-        lineHeight: '1.33',
-        backgroundColor: 'red',
+        backgroundColor: '#ff6f61',
         marginRight: '1em'
     }
 }

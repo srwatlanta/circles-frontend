@@ -8,7 +8,8 @@ const style= {
     image: {
         boxShadow: '5px 10px 18px #888888',
         marginBottom: '1em',
-        borderRadius: '5%'
+        borderRadius: '5%',
+        cursor: 'pointer'
     }
 }
 

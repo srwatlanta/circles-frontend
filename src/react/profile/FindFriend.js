@@ -16,6 +16,7 @@ const style = {
         color: 'black'
     },
     row: {
+        cursor: 'pointer',
         marginLeft: '1em'
     }
 }

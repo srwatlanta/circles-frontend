@@ -6,8 +6,9 @@ import {connect} from 'react-redux'
 const style = {
     button: {
         margin: '5px',
-        backgroundColor: '#e77d2c',
-        border: '1px'
+        backgroundColor: 'orange',
+        border: '1px',
+        boxShadow: '1px 2px 4px grey'
     }
 }
 
@@ -35,14 +36,13 @@ class CreateAccountModal extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <Modal
                 size="md"
                 show={this.props.modalClicked}
                 onHide={() => this.props.closeModal()}
                 aria-labelledby="example-modal-sizes-title-lg">
-                <Modal.Header closeButton>
+                <Modal.Header closeButton stlye={style.head}>
                     <Modal.Title id="example-modal-sizes-title-lg">
                         Edit Profile
                     </Modal.Title>

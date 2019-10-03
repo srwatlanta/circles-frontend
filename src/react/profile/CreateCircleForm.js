@@ -10,8 +10,9 @@ import { minHeight } from '@material-ui/system';
 const style = {
     button: {
         margin: '5px',
-        backgroundColor: '#e77d2c',
-        border: '1px'
+        backgroundColor: 'orange',
+        border: '1px',
+        boxShadow: '1px 2px 4px grey'
     },
     form: {
         paddingTop: '20px',
@@ -24,7 +25,7 @@ const style = {
         width: '15%'
     },
     div: {
-        maxHeight: '222px',
+        maxHeight: '14em',
         overflow: 'auto'
     }
 }
@@ -150,8 +151,8 @@ class CreateCircleForm extends Component {
                             />
                             <Form.Text className="text-muted"></Form.Text>
                         </Form.Group>
-                        <Form.Group >
-                            <div style={style.div}>
+                        <Form.Group style={style.div}>
+                            <div >
                                 {this.renderAddUsers()}
                             </div>
                         </Form.Group>

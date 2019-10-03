@@ -8,38 +8,13 @@ import '../../App.css'
 
 
 const style = {
-    image: {
-        display: 'block',
-        width: '100%',
-        height: 'auto',
-        borderRadius: '50%',
-        margin: '2em'
-    },
-    overlay: {
-        position: 'absolute',
-        top: '0',
-        bottom: '0',
-        left: '0',
-        right: '0',
-        height: '100%',
-        width: '100%',
-        opacity: '0',
-        transition: '.5s ease',
-        backgroundColor: 'grey'
-    },
-    item: {
-        position: 'relative',
-        width: '50%',
-        ':hover': {
-            opacity: '1'
-        }
-    },
     head: {
         fontSize: '3.5em',
         whiteSpace: 'nowrap'
     },
     add:{
         fontSize: '2.2em',
+        // marginLeft: '-2em',
         whiteSpace: 'nowrap'
     },
     text: {
@@ -54,6 +29,10 @@ const style = {
     container: {
         marginTop: '8em',
         textAlign: 'center'
+    },
+    caption: {
+        textAlign: 'center',
+        width: '80%'
     }
 }
 
@@ -87,11 +66,11 @@ class CircleEvents extends Component {
                   className="image"
                   width="900"
                   height="550"
-                />
+                />a
                 <div className='overlay'>
-                    <Carousel.Caption className='text'>
+                    <Carousel.Caption className='text' style={style.caption}>
                     <h1 style={style.head}>{event.name}</h1>
-                    <h3 style={style.add}>Address: {event.location}</h3>
+                    <h3 style={style.add}>{event.location}</h3>
                     <p style={style.text}>Time: {event.start_time}<br></br>
                     Price: {event.price}</p>
                     </Carousel.Caption>
