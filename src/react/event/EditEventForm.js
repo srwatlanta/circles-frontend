@@ -92,9 +92,9 @@ class EditEventForm extends Component {
                         <Form.Group controlId="formBasicTime">
                             <Form.Label>Price</Form.Label>
                             <Form.Control 
-                                type="address" 
+                                type="text" 
                                 onChange={this.handleChange}
-                                name="address" 
+                                name="price" 
                                 value={this.state.price} 
                             />
                             <Form.Text className="text-muted"></Form.Text>
