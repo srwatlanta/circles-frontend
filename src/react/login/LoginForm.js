@@ -28,8 +28,8 @@ const style = {
 class LoginForm extends Component {
 
     state = {
-        username: '',
-        password: '',
+        username: 'srwatlanta',
+        password: 'password',
         modalClicked: false
     }
 
