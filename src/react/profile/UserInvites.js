@@ -17,7 +17,7 @@ const style = {
         maxHeight: '450px'
     },
     button: {
-        marginLeft: '11.2em',
+        marginLeft: '15%',
         width: '35em',
         borderRadius: '5px',
         backgroundColor: 'orange',
