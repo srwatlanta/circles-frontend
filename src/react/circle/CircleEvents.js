@@ -66,7 +66,7 @@ class CircleEvents extends Component {
                   className="image"
                   width="900"
                   height="550"
-                />a
+                />
                 <div className='overlay'>
                     <Carousel.Caption className='text' style={style.caption}>
                     <h1 style={style.head}>{event.name}</h1>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Container, Row} from 'react-bootstrap'
+import {Container, Row, Modal, Form, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 
 const style ={
@@ -14,10 +14,49 @@ const style ={
     },
     text: {
         textAlign: 'center'
+    },
+    addButton: {
+        width: '70px',
+        height: '70px',
+        padding: '10px 16px',
+        borderRadius: '35px',
+        fontSize: '24px',
+        lineHeight: '1.33',
+        backgroundColor: 'rgba(0,0,0,0.04)',
+        marginTop: '1em',
+        marginLeft: '1em',
+        boxShadow: '2px 5px 9px grey',
+        border: '1px solid rgba(0,0,0,0.04)',
+        ':hover': {
+            boxShadow: '0 0 10px black'
+        }
+    },
+    ico: {
+        color: '#FF6f61',
     }
 }
 
 class CircleInfo extends Component {
+    state= {
+        modalClicked: false
+    }
+
+    openModal = () => {
+        this.setState({
+            modalClicked: true
+        })
+    }
+
+    closeModal = () => {
+        this.setState({
+            modalClicked: false
+        })
+    }
+
+    handleClick = () => {
+        this.openModal()
+    }
+
     render() {
         return (
             <Container style={style.container}>
