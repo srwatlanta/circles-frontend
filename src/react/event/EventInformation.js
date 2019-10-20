@@ -36,9 +36,9 @@ class EventInformation extends Component {
             <div>
                 <h1 style={style.head}>{this.props.event.name}</h1>
                 <img
-                src={this.props.event.img_url}
-                width='800'
-                style={style.image}
+                    src={this.props.event.img_url}
+                    width='800'
+                    style={style.image}
                 />
                 <h3>{this.props.event.location}</h3>
                 <h5>{this.props.event.date}</h5>
