@@ -22,6 +22,8 @@ class FriendInfo extends Component {
                 onClick={() => this.props.clear()}
                 src={this.props.user.img_url}
                 alt={this.props.user.username}
+                width='200'
+                height='200'
                 />
                 <h3>{this.props.user.username}</h3>
                 <p>
